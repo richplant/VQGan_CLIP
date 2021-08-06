@@ -25,8 +25,13 @@ The only required parameter is the input CSV. Otherwise, other params are config
 
 ```
 python generate.py -h
-usage: generate.py [-h] [--save_freq SAVE_FREQ] [--max_epochs MAX_EPOCHS] [--seed SEED] [--size SIZE] [--vqgan_config {checkpoints/vqgan_imagenet_f16_1024.yaml,checkpoints/vqgan_imagenet_f16_16384.yaml}]
-                   [--vqgan_checkpoint {checkpoints/vqgan_imagenet_f16_1024.ckpt,checkpoints/vqgan_imagenet_f16_16384.ckpt}] [--cutn CUTN] [--cut_pow CUT_POW] [--step_size STEP_SIZE] [--init_weight INIT_WEIGHT]
+usage: generate.py [-h] [--save_freq SAVE_FREQ] [--max_epochs MAX_EPOCHS] [--seed SEED] [--size SIZE] 
+                   [--vqgan_config {checkpoints/vqgan_imagenet_f16_1024.yaml,checkpoints/vqgan_imagenet_f16_16384.yaml}]
+                   [--vqgan_checkpoint {checkpoints/vqgan_imagenet_f16_1024.ckpt,checkpoints/vqgan_imagenet_f16_16384.ckpt}] 
+                   [--cutn CUTN] [--cut_pow CUT_POW] [--step_size STEP_SIZE] [--init_weight INIT_WEIGHT] 
+                   [--clip_model {RN50,RN101,RN50x4,RN50x16,ViT-B/32,ViT-B/16}] [--init_image INIT_IMAGE] 
+                   [--noise_prompt_seeds NOISE_PROMPT_SEEDS] [--noise_prompt_weights NOISE_PROMPT_WEIGHTS] 
+                   [--image_prompts IMAGE_PROMPTS]
                    input
 
 positional arguments:
@@ -50,6 +55,16 @@ optional arguments:
                         Learning rate.
   --init_weight INIT_WEIGHT
                         Value to initialize weights to.
+  --clip_model {RN50,RN101,RN50x4,RN50x16,ViT-B/32,ViT-B/16}
+                        CLIP model to load.
+  --init_image INIT_IMAGE
+                        Path to initialization image.
+  --noise_prompt_seeds NOISE_PROMPT_SEEDS
+                        List of noise prompt seeds.
+  --noise_prompt_weights NOISE_PROMPT_WEIGHTS
+                        List of noise prompt weights.
+  --image_prompts IMAGE_PROMPTS
+                        List of image prompts.
 ```
 
 # Generate
