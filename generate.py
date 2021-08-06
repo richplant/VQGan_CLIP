@@ -43,7 +43,7 @@ if __name__ == '__main__':
         "-s",
         type=int,
         default=500,
-        help="Save an updated image every [x] number of epochs."
+        help="Save an updated image every SAVE_FREQ number of epochs."
     )
     parser.add_argument(
         "--max_epochs",
@@ -64,6 +64,44 @@ if __name__ == '__main__':
         default=[256, 340],
         help="Output image size."
     )
+    parser.add_argument(
+        "--vqgan_config",
+        choices=["checkpoints/vqgan_imagenet_f16_1024.yaml", "checkpoints/vqgan_imagenet_f16_16384.yaml"],
+        type=str,
+        default="checkpoints/vqgan_imagenet_f16_1024.yaml",
+        help="Pretrained VQGan config to load."
+    )
+    parser.add_argument(
+        "--vqgan_checkpoint",
+        choices=["checkpoints/vqgan_imagenet_f16_1024.ckpt", "checkpoints/vqgan_imagenet_f16_16384.ckpt"],
+        type=str,
+        default="checkpoints/vqgan_imagenet_f16_1024.ckpt",
+        help="Pretrained VQGAn model to load."
+    )
+    parser.add_argument(
+        "--cutn",
+        type=int,
+        default=64,
+        help="Number of cuts to make."
+    )
+    parser.add_argument(
+        "--cut_pow",
+        type=float,
+        default=1.0,
+        help="Cut power."
+    )
+    parser.add_argument(
+        "--step_size",
+        type=float,
+        default=0.05,
+        help="Learning rate."
+    )
+    parser.add_argument(
+        "--init_weight",
+        type=float,
+        default=0.0,
+        help="Value to initialize weights to."
+    )
     args = parser.parse_args()
     args_dict = {
         "name": "",
@@ -72,13 +110,7 @@ if __name__ == '__main__':
         "noise_prompt_seeds": [],
         "noise_prompt_weights": [],
         "init_image": None,
-        "init_weight": 0.,
         "clip_model": 'ViT-B/32',
-        "vqgan_config": 'checkpoints/vqgan_imagenet_f16_1024.yaml',
-        "vqgan_checkpoint": 'checkpoints/vqgan_imagenet_f16_1024.ckpt',
-        "step_size": 0.05,
-        "cutn": 64,
-        "cut_pow": 1.,
     }
     for key, val in args_dict.items():
         vars(args)[key] = val
