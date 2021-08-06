@@ -4,7 +4,7 @@ Generate images from a list of prompts with VQGan and Clip locally.
 
 This repo is based off the original VQGan + CLIP (z+quantize method) Colab Notebook by Katherine Crowson. [![Open In Colab][colab-badge]][colab-notebook]
 
-[colab-notebook]: <https://colab.research.google.com/drive/1ZAus_gn2RhTZWzOWUpPERNC0Q8OhZRTZ>
+[colab-notebook]: <https://colab.research.google.com/drive/1L8oL-vLJXVcRzCFbPwOoMkPKJ8-aYdPN>
 [colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
 
 # Install
