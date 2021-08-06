@@ -32,10 +32,8 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--input",
-        "-i",
+        "input",
         type=str,
-        required=True,
         help="Path to input CSV."
     )
     parser.add_argument(

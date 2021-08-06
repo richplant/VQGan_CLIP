@@ -21,19 +21,19 @@ pip install -r requirements
 
 # Configure
 
-The only required parameter is the input CSV, set with "--input" or "-i".
-
-Otherwise, other params are configurable as follows:
+The only required parameter is the input CSV. Otherwise, other params are configurable as follows:
 
 ```
 python generate.py -h
-usage: generate.py [-h] --input INPUT [--save_freq SAVE_FREQ] [--max_epochs MAX_EPOCHS] [--seed SEED] [--size SIZE] [--vqgan_config {checkpoints/vqgan_imagenet_f16_1024.yaml,checkpoints/vqgan_imagenet_f16_16384.yaml}]
+usage: generate.py [-h] [--save_freq SAVE_FREQ] [--max_epochs MAX_EPOCHS] [--seed SEED] [--size SIZE] [--vqgan_config {checkpoints/vqgan_imagenet_f16_1024.yaml,checkpoints/vqgan_imagenet_f16_16384.yaml}]
                    [--vqgan_checkpoint {checkpoints/vqgan_imagenet_f16_1024.ckpt,checkpoints/vqgan_imagenet_f16_16384.ckpt}] [--cutn CUTN] [--cut_pow CUT_POW] [--step_size STEP_SIZE] [--init_weight INIT_WEIGHT]
+                   input
+
+positional arguments:
+  input                 Path to input CSV.
 
 optional arguments:
   -h, --help            show this help message and exit
-  --input INPUT, -i INPUT
-                        Path to input CSV.
   --save_freq SAVE_FREQ, -s SAVE_FREQ
                         Save an updated image every SAVE_FREQ number of epochs.
   --max_epochs MAX_EPOCHS, -m MAX_EPOCHS
@@ -50,7 +50,6 @@ optional arguments:
                         Learning rate.
   --init_weight INIT_WEIGHT
                         Value to initialize weights to.
-
 ```
 
 # Generate
@@ -58,5 +57,5 @@ optional arguments:
 Run the following command to generate from a list of prompts (check sample data.csv for format):
 
 ```
-python generate.py -i data.csv
+python generate.py data.csv
 ```
