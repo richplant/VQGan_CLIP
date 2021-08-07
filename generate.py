@@ -91,7 +91,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--step_size",
         type=float,
-        default=0.01,
+        default=0.05,
         help="Learning rate."
     )
     parser.add_argument(

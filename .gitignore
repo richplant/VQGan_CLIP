@@ -3,6 +3,5 @@ __pycache__
 venv
 taming
 taming-transformers
-output
 checkpoints
 CLIP
