@@ -29,9 +29,9 @@ usage: generate.py [-h] [--save_freq SAVE_FREQ] [--max_epochs MAX_EPOCHS] [--see
                    [--vqgan_config {checkpoints/vqgan_imagenet_f16_1024.yaml,checkpoints/vqgan_imagenet_f16_16384.yaml}]
                    [--vqgan_checkpoint {checkpoints/vqgan_imagenet_f16_1024.ckpt,checkpoints/vqgan_imagenet_f16_16384.ckpt}] 
                    [--cutn CUTN] [--cut_pow CUT_POW] [--step_size STEP_SIZE] [--init_weight INIT_WEIGHT] 
-                   [--clip_model {RN50,RN101,RN50x4,RN50x16,ViT-B/32,ViT-B/16}]
-                   [--init_image INIT_IMAGE] [--noise_prompt_seeds NOISE_PROMPT_SEEDS] 
-                   [--noise_prompt_weights NOISE_PROMPT_WEIGHTS] [--image_prompts IMAGE_PROMPTS]
+                   [--clip_model {RN50,RN101,RN50x4,RN50x16,ViT-B/32,ViT-B/16}] [--init_image INIT_IMAGE] 
+                   [--noise_prompt_seeds NOISE_PROMPT_SEEDS] [--noise_prompt_weights NOISE_PROMPT_WEIGHTS] 
+                   [--image_prompts IMAGE_PROMPTS]
                    input
 
 positional arguments:
@@ -40,19 +40,19 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   --save_freq SAVE_FREQ, -s SAVE_FREQ
-                        Save an updated image every SAVE_FREQ number of epochs. (default: 1000)
+                        Save an updated image every SAVE_FREQ number of epochs. (default: 100)
   --max_epochs MAX_EPOCHS, -m MAX_EPOCHS
-                        Maximum number of epochs to train for. (default: 10000)
+                        Maximum number of epochs to train for. (default: 1000)
   --seed SEED           Seed for randomisation. (default: 42)
-  --size SIZE           Output image size. (default: [256, 340])
+  --size SIZE           Output image size. (default: [480, 270])
   --vqgan_config {checkpoints/vqgan_imagenet_f16_1024.yaml,checkpoints/vqgan_imagenet_f16_16384.yaml}
-                        Pretrained VQGan config to load. (default: checkpoints/vqgan_imagenet_f16_16384.yaml)
+                        Pretrained VQGan config to load. (default: checkpoints/vqgan_imagenet_f16_1024.yaml)
   --vqgan_checkpoint {checkpoints/vqgan_imagenet_f16_1024.ckpt,checkpoints/vqgan_imagenet_f16_16384.ckpt}
-                        Pretrained VQGAn model to load. (default: checkpoints/vqgan_imagenet_f16_16384.ckpt)
+                        Pretrained VQGAn model to load. (default: checkpoints/vqgan_imagenet_f16_1024.ckpt)
   --cutn CUTN           Number of cuts to make. (default: 64)
   --cut_pow CUT_POW     Cut power. (default: 1.0)
   --step_size STEP_SIZE
-                        Learning rate. (default: 0.05)
+                        Learning rate. (default: 0.01)
   --init_weight INIT_WEIGHT
                         Value to initialize weights to. (default: 0.0)
   --clip_model {RN50,RN101,RN50x4,RN50x16,ViT-B/32,ViT-B/16}
