@@ -10,7 +10,7 @@ def run(args):
     i = 1
     try:
         with tqdm() as pbar:
-            while i < args.max_epochs:
+            while i <= args.max_epochs:
                 model.train(i)
                 i += 1
                 pbar.update()
@@ -40,14 +40,14 @@ if __name__ == '__main__':
         "--save_freq",
         "-s",
         type=int,
-        default=1_000,
+        default=100,
         help="Save an updated image every SAVE_FREQ number of epochs."
     )
     parser.add_argument(
         "--max_epochs",
         "-m",
         type=int,
-        default=10_000,
+        default=1000,
         help="Maximum number of epochs to train for."
     )
     parser.add_argument(
@@ -59,21 +59,21 @@ if __name__ == '__main__':
     parser.add_argument(
         "--size",
         type=list,
-        default=[256, 340],
+        default=[480, 270],
         help="Output image size."
     )
     parser.add_argument(
         "--vqgan_config",
         choices=["checkpoints/vqgan_imagenet_f16_1024.yaml", "checkpoints/vqgan_imagenet_f16_16384.yaml"],
         type=str,
-        default="checkpoints/vqgan_imagenet_f16_16384.yaml",
+        default="checkpoints/vqgan_imagenet_f16_1024.yaml",
         help="Pretrained VQGan config to load."
     )
     parser.add_argument(
         "--vqgan_checkpoint",
         choices=["checkpoints/vqgan_imagenet_f16_1024.ckpt", "checkpoints/vqgan_imagenet_f16_16384.ckpt"],
         type=str,
-        default="checkpoints/vqgan_imagenet_f16_16384.ckpt",
+        default="checkpoints/vqgan_imagenet_f16_1024.ckpt",
         help="Pretrained VQGAn model to load."
     )
     parser.add_argument(
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--step_size",
         type=float,
-        default=0.05,
+        default=0.01,
         help="Learning rate."
     )
     parser.add_argument(
