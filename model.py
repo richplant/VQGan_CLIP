@@ -91,7 +91,7 @@ class VQGanCLIP:
     @torch.no_grad()
     def checkin(self, i, losses):
         name = self.args.name.lower().replace("'", "").replace(" ", "_")
-        out_dir = Path("output").joinpath(name)
+        out_dir = Path(self.args.output).joinpath(name)
         out_dir.mkdir(parents=True, exist_ok=True)
         name_str = f"{out_dir}/progress_{i}.png"
         losses_str = ', '.join(f'{loss.item():g}' for loss in losses)

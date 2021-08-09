@@ -37,6 +37,13 @@ if __name__ == '__main__':
         help="Path to input CSV."
     )
     parser.add_argument(
+        "--output",
+        "-o",
+        type=str,
+        default="output",
+        help="Path to save outputs."
+    )
+    parser.add_argument(
         "--save_freq",
         "-s",
         type=int,
@@ -59,7 +66,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--size",
         type=list,
-        default=[480, 270],
+        default=[420, 420],
         help="Output image size."
     )
     parser.add_argument(
